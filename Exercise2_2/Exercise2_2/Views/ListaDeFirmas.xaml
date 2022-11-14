@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Convertidor="clr-namespace:Exercise2_2.Convertidor"
+             x:Class="Exercise2_2.Views.ListaDeFirmas">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Padding="6" HorizontalOptions="Center">
+                <Label FontAttributes="Bold" Text="Selecciona, para guardar en Storage"></Label>
+            </Frame>
+            
+            <ListView SeparatorColor="Black" SeparatorVisibility="Default" BackgroundColor="LightPink" 
+                      x:Name="listadp" RowHeight="100" AbsoluteLayout.LayoutFlags="All" 
+                      ItemTapped="listadp_ItemTapped" AbsoluteLayout.LayoutBounds="1,1,1,1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=".3*" />
+                                    <RowDefinition Height=".7*" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".2*" />
+                                    <ColumnDefinition Width=".8*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image HorizontalOptions="Start" VerticalOptions="Start"  
+                                       Source="{Binding img2, Converter={StaticResource ByteToImage}}" 
+                                       Grid.RowSpan="2" />
+                                <Label HorizontalOptions="Start" Text="{Binding nombreToString}" Grid.Column="1" />
+                                <Label HorizontalOptions="Start" Text="{Binding DescripToString}" Grid.Row="1" Grid.Column="1" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

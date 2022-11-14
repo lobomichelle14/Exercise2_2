@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="Exercise2_2.Principal"
+             BackgroundImageSource="Fondo1.jpg">
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+                <Image Source="drawable/Firma.PNG" 
+                            Aspect="Fill" 
+                            HeightRequest="100"/>
+            
+                <forms:SignaturePadView x:Name="firmaa" 
+                            BackgroundColor="White"
+                            StrokeWidth="1" 
+                            HeightRequest="250" 
+                                    PromptText=""
+                                    CaptionText=""/>
+            
+            <Label Text="   Nombre:" TextColor="Black" FontSize="18" HorizontalTextAlignment="Start" Margin="0"/>
+            <Entry x:Name="txtnombree" Margin="5" Placeholder="Escribe el nombre" 
+                   PlaceholderColor="Gray" Keyboard="Text" HorizontalTextAlignment="Center"/>
+            
+            <Label Text="   Descripción:" TextColor="Black" FontSize="18" HorizontalTextAlignment="Start"/>
+            <Entry x:Name="txtdescrip" Margin="5" Placeholder="Escribe la descripción" 
+                   PlaceholderColor="Gray" Keyboard="Text" HorizontalTextAlignment="Center"/>
+            
+            <Grid RowSpacing="0"
+                  ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                    <Button BackgroundColor="DodgerBlue" x:Name="btnLista" BorderColor="black"
+                           Grid.Row="0" Grid.Column="0" Text="LISTA FIRMAS" Clicked="btnLista_Clicked" CornerRadius="15" Margin="20"/>
+                    <Button BackgroundColor="HotPink" x:Name="btnGuardar"
+                            Grid.Row="0" Grid.Column="1" Text="A SQLite" Clicked="btnGuardar_Clicked" CornerRadius="15" Margin="20"/>
+
+                </Grid>
+            
+                <Button BackgroundColor="Tomato" x:Name="btnBorrar"
+                            Text="Eliminar" Clicked="btnBorrar_Clicked" CornerRadius="15" Margin="130,0,130,0" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
